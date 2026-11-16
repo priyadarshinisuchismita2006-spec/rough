@@ -1,0 +1,46 @@
+<!--write a program to declare objects in multiple different ways?--!>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simple JavaScript Objects</title>
+</head>
+<body>
+
+    <h1>3 Simple Ways to Make JavaScript Objects</h1>
+
+    <h2>1. Object Literal (Most Common)</h2>
+    <p id="literal"></p>
+
+    <h2>2. Constructor Function (Blueprint)</h2>
+    <p id="constructor"></p>
+
+    <h2>3. ES6 Class (Modern Blueprint)</h2>
+    <p id="class"></p>
+
+    <script>
+        // 1. Literal Method
+        const user1 = { name: "Alice", age: 25 };
+        document.getElementById("literal").innerText = user1.name + " is " + user1.age + " years old.";
+
+        // 2. Constructor Function Method
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        const user2 = new Person("Bob", 30);
+        document.getElementById("constructor").innerText = user2.name + " is " + user2.age + " years old.";
+
+        // 3. Class Method
+        class Human {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+        }
+        const user3 = new Human("Charlie", 35);
+        document.getElementById("class").innerText = user3.name + " is " + user3.age + " years old.";
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!--and write a function in js to print your bio-data?--!>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bio-data Example</title>
+</head>
+<body>
+
+    <h1>My Bio-data</h1>
+    <button onclick="printBioData()">Show Bio-data</button>
+    <p id="bio"></p>
+
+    <script>
+        function printBioData() {
+            let bioData = "Name: Alex Smith<br>" +
+                          "Age: 25<br>" +
+                          "Profession: Web Developer<br>" +
+                          "Country: India";
+            
+            document.getElementById("bio").innerHTML = bioData;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,254 @@
+
+<html>
+<head>
+    <title>Dynamic Registration Form</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #eef2f7;
+            padding: 30px;
+        }
+
+        .container {
+            width: 450px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px 2px;
+            background: #1769aa;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .dynamic-field {
+            display: flex;
+            gap: 5px;
+        }
+
+        .dynamic-field input {
+            flex: 1;
+        }
+
+        .result {
+            margin-top: 15px;
+            background: #e5f5e9;
+            padding: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2><center>Profile Page<center></h2>
+
+    <form id="registrationForm">
+
+        <label>Name:</label>
+        <input type="text" id="name" required placeholder="full name all in upper case">
+		
+		<label> Course: <label>
+		<input type ="text" id="name" required placeholder="eg:subject"</input>
+		
+        <label>Email:</label>
+        <input type="email" id="email" required placeholder="eg:abc@gmail.com">
+		
+		<label>Address: </label>
+		 <input type ="text" id="address"required placeholder = "eg:landmark"</input> 
+		
+		
+		<label> 
+
+        <label>Select Category:</label>
+        <select id="category" onchange="showFields()">
+            <option value="">-- Select --</option>
+            <option value="student">Student</option>
+            <option value="employee">Employee</option>
+        </select>
+
+        <div id="extraFields"></div>
+
+        <h3>Additional Skills</h3>
+
+        <div id="skillFields"></div>
+
+        <button type="button" onclick="addSkill()">
+            Add Skill
+        </button>
+
+        <button type="submit">
+            Submit
+        </button>
+
+    </form>
+
+    <div id="result" class="result"></div>
+
+</div>
+
+<script>
+
+    // Dynamically display fields based on category
+    function showFields() {
+
+        let category =
+            document.getElementById("category").value;
+
+        let extra =
+            document.getElementById("extraFields");
+
+        extra.innerHTML = "";
+
+        if (category === "student") {
+
+            extra.innerHTML = `
+                <label>Roll Number:</label>
+                <input type="text" id="roll" required>
+
+                <label>Course:</label>
+                <input type="text" id="course" required>
+            `;
+
+        } else if (category === "employee") {
+
+            extra.innerHTML = `
+                <label>Employee ID:</label>
+                <input type="text" id="empid" required>
+
+                <label>Department:</label>
+                <input type="text" id="department" required>
+            `;
+
+        }
+    }
+
+
+    // Add a new skill input field
+    function addSkill() {
+
+        let container =
+            document.getElementById("skillFields");
+
+        let div = document.createElement("div");
+
+        div.className = "dynamic-field";
+
+        let input = document.createElement("input");
+
+        input.type = "text";
+        input.placeholder = "Enter a skill";
+        input.className = "skill";
+
+        let removeButton =
+            document.createElement("button");
+
+        removeButton.type = "button";
+        removeButton.textContent = "Remove";
+
+        removeButton.onclick = function() {
+            div.remove();
+        };
+
+        div.appendChild(input);
+        div.appendChild(removeButton);
+
+        container.appendChild(div);
+    }
+
+
+    // Handle form submission
+    document.getElementById("registrationForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        let name =
+            document.getElementById("name").value;
+
+        let email =
+            document.getElementById("email").value;
+
+        let category =
+            document.getElementById("category").value;
+
+        if (!category) {
+            alert("Please select a category.");
+            return;
+        }
+
+        let details = "";
+
+        if (category === "student") {
+
+            details = `
+                Roll Number: ${document.getElementById("roll").value}
+                <br>
+                Course: ${document.getElementById("course").value}
+            `;
+
+        } else {
+
+            details = `
+                Employee ID: ${document.getElementById("empid").value}
+                <br>
+                Department: ${document.getElementById("department").value}
+            `;
+        }
+
+        let skills = [];
+
+        document.querySelectorAll(".skill").forEach(function(input) {
+            if (input.value.trim() !== "") {
+                skills.push(input.value.trim());
+            }
+        });
+
+        document.getElementById("result").innerHTML = `
+            <h3>Registration Successful!</h3>
+            Name: ${escapeHTML(name)} <br>
+            Email: ${escapeHTML(email)} <br>
+            Category: ${escapeHTML(category)} <br>
+            ${details}
+            Skills: ${skills.map(escapeHTML).join(", ")}
+        `;
+
+    });
+
+    // Escape user input before displaying it as HTML
+    function escapeHTML(value) {
+        return value.replace(/[&<>"']/g, function(char) {
+            return {
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#39;"
+            }[char];
+        });
+    }
+
+    // Add one skill field initially
+    addSkill();
+
+</script>
+
+</body>
+</html>
+```
+

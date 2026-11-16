@@ -1,0 +1,32 @@
+<!--4.	Write a program to calculate simple interest using JavaScript code--!>
+<html>
+<head>
+      <title>SIMPLE INTEREST</title>
+	  
+</head>
+<body bgcolor="white">
+<h1>Enter the principle value:</h1>
+<input type="text" id="P"  placeholder="enter the principle"><br>
+<h1>Enter the rate value:</h1>
+<input type="text" id="R"  placeholder="enter the rate"><br>
+<h1>Enter the time value:</h1>
+<input type="text" id="T"  placeholder="enter the time"><br>
+<input type="submit" onclick="calculatesi()">
+
+<script>
+function calculatesi(){
+
+	  var p=document.getElementById("P").value;
+	  console.log(p);
+	  r=document.getElementById("R").value;
+	  console.log(r);
+	  t=document.getElementById("T").value;
+	  console.log(t);
+	  SI=(p*r*t)/100;
+	  console.log(SI);
+	  //document.write("simple interest is="+SI+"<br>");
+	  }
+	</script>
+     
+</body>
+</html>

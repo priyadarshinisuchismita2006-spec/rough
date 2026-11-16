@@ -1,0 +1,31 @@
+<!--write a class and use constructor--!>
+<html>
+<head>
+<title>Constructor example</title>
+</head>
+<body>
+<h2>Student details</h2>
+<p id="result"></p>
+<script>
+class student{
+constructor(name,age,course){
+this.name =name;
+this.age=age;
+this.course = course;
+}
+
+display(){
+return "Name:"+this.name+"<br>"+
+"Age:"+this.age+"<br>"+
+"Course:"+this.course;
+}
+}
+function main()
+{
+let student = new Student("Aman", 20 ,"IMCA");
+document.getElementById("result").innerHTML=student.display();
+}
+main();
+</script>
+</body>
+</html>

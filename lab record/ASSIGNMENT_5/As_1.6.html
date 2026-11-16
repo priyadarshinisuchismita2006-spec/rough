@@ -1,0 +1,61 @@
+<!--9.	Write a program using user-defined function to find the binary value of any decimal number.--!>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Decimal to Binary Converter</title>
+</head>
+<body>
+
+    <h2>Decimal to Binary Converter</h2>
+    
+    <label for="decimalInput">Enter a decimal number:</label>
+    <input type="number" id="decimalInput" placeholder="e.g., 25">
+    <button onclick="displayBinary()">Convert</button>
+
+    <p id="result"></p>
+
+    
+    <script>
+       
+        function convertToBinary(decimalNum) {
+           
+            if (decimalNum === 0) {
+                return "0";
+            }
+
+            let binaryResult = "";
+            let num = Math.abs(parseInt(decimalNum));
+          
+            while (num > 0) {
+                let remainder = num % 2;
+                binaryResult = remainder + binaryResult; 
+                num = Math.floor(num / 2);
+            }
+
+            
+            if (decimalNum < 0) {
+                binaryResult = "-" + binaryResult;
+            }
+
+            return binaryResult;
+        }
+
+        
+        function displayBinary() {
+            const inputVal = document.getElementById("decimalInput").value;
+            
+            if (inputVal === "") {
+                document.getElementById("result").innerText = "Please enter a valid number.";
+                return;
+            }
+
+            const decimal = Number(inputVal);
+            const binary = convertToBinary(decimal);
+
+            document.getElementById("result").innerHTML = `Binary value of <b>${decimal}</b> is: <b>${binary}</b>`;
+        }
+    </script>
+
+</body>
+</html>

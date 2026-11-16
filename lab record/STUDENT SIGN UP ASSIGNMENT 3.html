@@ -1,0 +1,105 @@
+
+<html>
+<head>
+<title>Student Signup</title>
+<style>
+* {
+box-sizing: border-box;
+}
+ body {
+ margin: 0;
+font-family: Arial, sans-serif;
+background-color: #ffffff;
+}
+.container {
+ display: flex;
+ width: 900px;
+ min-height: 650px;
+ margin: 30px auto;
+ box-shadow: 0 0 10px gray;
+  }
+ .left {
+  width: 45%;
+ background: linear-gradient(to bottom, #9b3b3b, #ff5a00);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ }
+ .left h1 {
+ color: white;
+  font-size: 35px;
+ }    
+.right {
+width: 55%;
+padding: 50px 70px;
+background-color: #fff;
+}
+.right h2 {
+text-align: center;
+font-size: 30px;
+margin-bottom: 35px;
+letter-spacing: 1px;
+}
+label {
+display: block;
+font-weight: bold;
+margin-top: 15px;
+margin-bottom: 7px;
+}
+ input {
+ width: 100%;
+ padding: 12px;
+ border: 1px solid #aaa
+ font-size: 14px;
+ }
+ input:focus {
+ outline: none;
+ border-color: #555;
+ }
+.signup {
+ width: 100%;
+ padding: 12px;
+ margin-top: 25px;
+ background-color: #333;
+color: white;
+ border: none;
+ font-size: 16px;
+cursor: pointer;
+}
+.signup:hover {
+ background-color: #555;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="left">
+<h1>Welcome Student</h1>
+</div>
+<div class="right">
+<h2>STUDENT SIGNUP</h2>
+<form>
+<label>Name</label>
+<input type="text" placeholder="Enter Name">
+<label>University Name</label>
+<input type="text" placeholder="Enter University Name">
+<label>College Name</label>
+<input type="text" placeholder="Enter College Name">
+<label>Branch</label>
+<input type="text" placeholder="Enter Branch">
+<label>Registration Number</label>
+<input type="text" placeholder="Enter Registration number">
+<label>DOB</label>
+<input type="date">
+<label>Email Address</label>
+<input type="email" placeholder="Enter email">
+<label>Password</label>
+<input type="password" placeholder="Password">
+<button class="signup" type="submit">
+Sign Up
+</button>
+</form>
+</div>
+</div>
+</body>
+</html>

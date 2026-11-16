@@ -1,0 +1,27 @@
+<!--Give a simple example of a problem where recursion can be used to print numbers from 100 to 1.--!>
+<html>
+<head>
+    <title>Print 100 to 1 Using Recursion</title>
+</head>
+<body>
+    <h2>Check your browser console for numbers from 100 to 1</h2>
+
+    <script>
+        function printCountdown(n) {
+            // Base case: stop when n is less than 1
+            if (n < 1) {
+                return;
+            }
+            
+            // Print the current number
+            console.log(n);
+            
+            // Recursive call with n - 1
+            printCountdown(n - 1);
+        }
+
+        // Start the recursion from 100
+        printCountdown(100);
+    </script>
+</body>
+</html>

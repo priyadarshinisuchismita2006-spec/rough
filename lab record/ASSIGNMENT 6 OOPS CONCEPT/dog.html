@@ -1,0 +1,89 @@
+<html>
+<head>
+    <title>INHERITANCE IN JAVASCRIPT</title>
+    <style>
+        body {
+            font-family: arial;
+            background-color: #f2f2f2;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .container {
+            background: white;
+            width: 400px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+        input {
+            padding: 10px;
+            margin: 8px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Animal Inheritance</h2>
+        <input type="text" id="dogName" placeholder="Enter Dog's Name" value="Buddy">
+        <br>
+        <input type="text" id="dogBreed" placeholder="Enter Dog's Breed" value="Golden Retriever">
+        <br>
+        <button onclick="triggerEat()">Call Inherited eat()</button>
+        <button onclick="triggerBark()">Call Custom bark()</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        // Parent Class
+        class Animal {
+            constructor(name) {
+                this.name = name;
+            }
+            eat() {
+                return `${this.name} is eating.`;
+            }
+        }
+
+        // Child Class inheriting from Animal
+        class Dog extends Animal {
+            constructor(name, breed) {
+                super(name); // Calls the parent constructor
+                this.breed = breed;
+            }
+            bark() {
+                return `${this.name} (${this.breed}) barks!`;
+            }
+        }
+
+        // Interactive UI Functions
+        function triggerEat() {
+            const name = document.getElementById("dogName").value;
+            const breed = document.getElementById("dogBreed").value;
+            const myDog = new Dog(name, breed);
+            
+            document.getElementById("result").innerHTML = `<strong>Inherited Method Output:</strong><br>${myDog.eat()}`;
+        }
+
+        function triggerBark() {
+            const name = document.getElementById("dogName").value;
+            const breed = document.getElementById("dogBreed").value;
+            const myDog = new Dog(name, breed);
+            
+            document.getElementById("result").innerHTML = `<strong>Custom Method Output:</strong><br>${myDog.bark()}`;
+        }
+    </script>
+</body>
+</html>

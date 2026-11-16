@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DATA HIDING AND ABSTRACTION (CAR)</title>
+    <style>
+        body {
+            font-family: arial;
+            background-color: #f2f2f2;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .container {
+            background: white;
+            width: 400px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+        input {
+            padding: 10px;
+            margin: 8px;
+            width: 200px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Car Control Panel</h2>
+    <input type="number" id="speedInput" placeholder="Enter Speed (km/h)" value="120">
+    <br>
+    <button onclick="startDriving()">Drive Car</button>
+    <p id="result"></p>
+</div>
+
+<script>
+// JavaScript Class
+class Car {
+    // DATA HIDING
+    // Private variables cannot be accessed directly outside the class
+    #brand;
+    #speed = 0;
+
+    constructor(brand) {
+        this.#brand = brand;
+    }
+
+    // ABSTRACTION
+    // User calls drive() without needing to manage internal calculations or variables directly
+    drive(targetSpeed) {
+        if (targetSpeed > 0) {
+            this.#speed = targetSpeed;
+            return `${this.#brand} is driving at ${this.#speed} km/h.`;
+        }
+        return `${this.#brand} is stationary.`;
+    }
+}
+
+// Create object
+const myCar = new Car("Tesla");
+
+function startDriving() {
+    let speed = Number(document.getElementById("speedInput").value);
+    
+    // Executes the requested behavior: myCar.drive()
+    let outputMessage = myCar.drive(speed); 
+    
+    document.getElementById("result").innerHTML = outputMessage;
+}
+</script>
+
+</body>
+</html>

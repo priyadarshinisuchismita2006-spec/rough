@@ -1,0 +1,46 @@
+<!HCF AND LCM !-->
+<html>
+<head>
+    <title>HCF & LCM of NUMBER</title>
+</head>
+<body bgcolor="white">
+    <h1>Find HCF and LCM:</h1>
+    Num1=<input type="number" id="N1" placeholder="enter the number1"><br>
+    Num2=<input type="number" id="N2" placeholder="enter the number2"><br>
+    <input type="submit" onclick="calculate()">
+    
+    <!-- Added missing output element -->
+    <div id="res"></div>
+
+    <script>
+    function calculate(){
+        // Convert string inputs to actual numbers
+        var n1 = parseInt(document.getElementById("N1").value);
+        var n2 = parseInt(document.getElementById("N2").value);
+        
+        if(isNaN(n1) || isNaN(n2) || n1 <= 0 || n2 <= 0) {
+            document.getElementById("res").innerHTML = "ENTER VALID NUMBER";
+            return;
+        }
+        
+        // Keep original values to calculate LCM later
+        var a = n1;
+        var b = n2;
+        
+        // Euclidean algorithm loop to find HCF
+        while(n2 != 0) {
+            var temp = n2;
+            n2 = n1 % n2;
+            n1 = temp;
+        }
+        
+        var hcf = n1;
+        var lcm = (a * b) / hcf;
+        
+        document.getElementById("res").innerHTML = "HCF: " + hcf + "<br>LCM: " + lcm;
+        console.log(hcf);
+        console.log(lcm);
+    }
+    </script>
+</body>
+</html>

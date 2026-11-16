@@ -1,0 +1,38 @@
+<!-- 10.Write a program to find the factorial of a number using function with argument--!>
+<html>
+<head>
+      <title>FACTORIAL OF NUMBER</title>
+	  
+</head>
+<body bgcolor="white">
+<h1>Enter the NUMBER:</h1>
+<input type="number" id="N"  placeholder="enter the number"><br>
+
+<input type="submit" onclick="factorial_num()">
+
+<script>
+function factorial_num(){
+
+	  var n=document.getElementById("N").value;
+	  console.log(n);
+	  
+	 
+    if (n < 0) return undefined; 
+    
+    let result = 1;
+    
+    for (let i = 2; i <= n; i++) {
+        result *= i;
+    }
+    r=result;
+	
+console.log(r);
+}
+
+console.log(factorial_num(5));
+
+
+	</script>
+     
+</body>
+</html>

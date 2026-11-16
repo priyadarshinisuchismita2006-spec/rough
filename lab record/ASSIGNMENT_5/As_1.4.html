@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>ARMSTRONG NUMBER</title>
+</head>
+<body bgcolor="white">
+    <h1>Enter the NUMBER:</h1>
+    <input type="number" id="N" placeholder="Enter the number"><br><br>
+    <input type="submit" value="Check" onclick="armstrong_num()">
+    
+    <p id="result"></p>
+
+<script>
+function armstrong_num() {
+    var numStr = document.getElementById("N").value;
+    var n = parseInt(numStr);
+    
+    if (isNaN(n) || n < 0) {
+        document.getElementById("result").innerText = "INVALID INPUT";
+        return;
+    }
+    
+    var numDigits = numStr.length;
+    var sum = 0;
+    var temp = n;
+    
+    while (temp > 0) {
+        var digit = temp % 10;
+        sum += Math.pow(digit, numDigits);
+        temp = Math.floor(temp / 10);
+    }
+    
+    if (sum === n) {
+        document.getElementById("result").innerText = n + " is an Armstrong number.";
+    } else {
+        document.getElementById("result").innerText = n + " is NOT an Armstrong number.";
+    }
+}
+</script>
+     
+</body>
+</html>

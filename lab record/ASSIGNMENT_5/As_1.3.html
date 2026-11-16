@@ -1,0 +1,35 @@
+	<!--Write a JS program to find the greatest number among two integer numbers using ternary operator--!>
+<html>
+<head>
+      <title>GREATEST AMONG TWO NUMBER</title>
+	  
+</head>
+<body bgcolor="white">
+<h1>Enter the 1st value:</h1>
+<input type="text" id="a"  placeholder="enter the value 1"><br>
+<h1>Enter the 2nd value:</h1>
+<input type="text" id="b"  placeholder="enter the value 2"><br>
+
+<input type="submit" onclick="greatest_num()">
+
+<script>
+function greatest_num(){
+
+	  var v1=document.getElementById("a").value;
+	  console.log(v1);
+	  v2=document.getElementById("b").value;
+	  console.log(v2);
+	 if(v1>v2) {
+	  Larger=v1;
+	  }
+	  else{
+	  Larger=v2;
+	  }
+	
+	  console.log(Larger);
+	  //document.write("Larger number is ="+Larger+"<br>");
+	  }
+	</script>
+     
+</body>
+</html>

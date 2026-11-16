@@ -1,0 +1,33 @@
+<!--19.	What is an array in JavaScript, and implement a simple array program to sort a list of elements?--!>
+<html>
+
+<head>
+    
+    <title>Simple JavaScript Array Sorting</title>
+    
+</head>
+<body>
+
+    
+        <h2>Array Sorting Example</h2>
+        <p><strong>Original List:</strong> <span id="original-list"></span></p>
+        <p><strong>Sorted List (Alphabetical):</strong> <span id="sorted-list"></span></p>
+    
+
+    <script>
+        // 1. Declare and initialize an array of strings
+        const fruits = ["Banana", "Orange", "Apple", "Mango", "Cherry"];
+
+        // Display the original array on the page
+        document.getElementById("original-list").textContent = fruits.join(", ");
+
+        // 2. Sort the array alphabetically using the built-in sort() method
+        // Note: sort() modifies the original array in place
+        fruits.sort();
+
+        // Display the sorted array on the page
+        document.getElementById("sorted-list").textContent = fruits.join(", ");
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!--Give two examples of events with suitable example--!>
+<!DOCTYPE html>
+<html>
+<head>
+<title>EVENT HANDELING</title>
+</head>
+<body>
+<h2>Event handeling Example</h2>
+<button id="btn">Move Mouse or click me</button>
+<p id="result"></p>
+<script>
+
+function HandleClick() {
+document.getElementById("reult").innerHTML =
+"Button was clicked";
+}
+function HandleMouseOver() {
+document.getElementById("reult").innerHTML =
+"Mouse is over the button.";
+}
+let button = document.getElementById("btn");
+button.addEventListener("click",HandleClick);
+button.addEventListener("mouseover",HandleMouseOver);
+</script>
+</body>
+</html>

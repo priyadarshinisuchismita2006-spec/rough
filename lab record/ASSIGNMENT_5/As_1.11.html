@@ -1,0 +1,27 @@
+<!--implement one example for function as an object--!>
+
+<html>
+<body>
+
+    <h1>Simplest Function-as-Object Example</h1>
+    <button onclick="showSecret()">Reveal Secret</button>
+    
+    <p id="output"></p>
+
+    <script>
+        // 1. Create a simple function
+        function myFunction() {}
+
+        // 2. Attach a property to it, just like a regular object
+        myFunction.secretMessage = "Hello from inside a function object!";
+
+        // 3. Display the property when the button is clicked
+        function showSecret() {
+            document.getElementById("output").innerText = myFunction.secretMessage;
+        }
+    </script>
+
+</body>
+</html>
+
+
